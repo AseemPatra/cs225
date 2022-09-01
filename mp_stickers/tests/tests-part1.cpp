@@ -1,6 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include "Image.h"
+#include <iostream>
 #include "cs225/PNG.h"
 #include "cs225/HSLAPixel.h"
 
@@ -83,7 +84,7 @@ TEST_CASE("Image rotateColor(double) rotates the color", "[weight=1][part=1]") {
   
   Image result = createRainbowImage();
   result.rotateColor(90);
-
+  
   REQUIRE( img.getPixel(90, 90).h + 90 == result.getPixel(90, 90).h );
 }
 

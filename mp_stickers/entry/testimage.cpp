@@ -20,5 +20,20 @@ int main() {
   alma.scale(2);
   alma.writeToFile("../scale2x.png");
 
+  //std::cout << "Using Image::illinify to create `illinify.png`..." << std::endl;
+  //alma.readFromFile("../alma.png");
+  //alma.illinify();
+  //alma.writeToFile("../illinify.png");
+
+  //std::cout << "Using Image::grayscale to create `grayscale.png`..." << std::endl;
+  //alma.readFromFile("../alma.png");
+  //alma.grayscale();
+  //alma.writeToFile("../grayscale.png");
+
+  std::cout << "Using Image::scale to create `scale2.png`..." << std::endl;
+  alma.readFromFile("../alma.png");
+  alma.scale(1000, 1000);
+  alma.writeToFile("../scale200x.png");
+
   return 0;
 }
