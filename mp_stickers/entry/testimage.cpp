@@ -30,9 +30,9 @@ int main() {
   //alma.grayscale();
   //alma.writeToFile("../grayscale.png");
 
-  std::cout << "Using Image::scale to create `scale2.png`..." << std::endl;
+  std::cout << "Using Image::scale to create `scale200x.png`..." << std::endl;
   alma.readFromFile("../alma.png");
-  alma.scale(1000, 1000);
+  alma.scale(180, 80);
   alma.writeToFile("../scale200x.png");
 
   return 0;

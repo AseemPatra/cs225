@@ -1,4 +1,4 @@
-#include <Image.h>
+#include "Image.h"
 #include <iostream>
 #include <cstdlib>
 #include "cs225/PNG.h"
@@ -189,27 +189,12 @@ void Image::scale(double factor) {
 }
 void Image::scale(unsigned w, unsigned h) {
     double factor;
-    double check1 = w / width();
-    double check2 = h / height();
+    double check1 = w / (double) width();
+    double check2 = h / (double) height();
     if (check1 >= check2) {
         factor = check2;
     } else {
         factor = check1;
     }
-    if (factor == 1) {
-        return;
-    }
-    unsigned int originalHeight = height();
-    unsigned int originalWidth = width();
-    std::cout << "OG W: " << originalWidth << std::endl;
-    std::cout << "OG H: " << originalHeight << std::endl;
-    Image* tmp = new Image();
-    *tmp = *this;
-    resize(factor*width(), factor*height());
-    for (unsigned int index1 = 0; index1 < factor*originalHeight; index1++) {
-        for (unsigned int index2 = 0; index2 < factor*originalWidth; index2++) {
-            getPixel(index2, index1) = tmp->getPixel(index2/factor, index1/factor);
-        }
-    }
-    delete tmp;
+    scale(factor);
 }

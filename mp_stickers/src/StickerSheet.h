@@ -3,7 +3,7 @@
  * Contains your declaration of the interface for the StickerSheet class.
  */
 #pragma once
-#include <Image.h>
+#include "Image.h"
 #include <vector>
 #include "cs225/PNG.h"
 #include "cs225/HSLAPixel.h"
@@ -21,5 +21,8 @@ class StickerSheet {
         Image* getSticker(unsigned index);
         Image render() const;
     private:
-    
+        Image* base;
+        std::vector<Image*> im;
+        std::vector<std::pair<int, int>> coords;
+        unsigned int max_;
 };
