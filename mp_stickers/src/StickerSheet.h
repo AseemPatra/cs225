@@ -21,7 +21,7 @@ class StickerSheet {
         Image* getSticker(unsigned index);
         Image render() const;
     private:
-        Image* base;
+        Image base;
         std::vector<Image*> im;
         std::vector<std::pair<int, int>> coords;
         unsigned int max_;

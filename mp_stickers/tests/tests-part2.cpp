@@ -19,18 +19,13 @@ static void checkStickerPlacement(const Image& sticker, const Image& sheet, cons
 }
 
 TEST_CASE("A basic StickerSheet works", "[weight=5][part=2][timeout=30000][valgrind]") {
-  std::cout << "Reached line " << __LINE__ << std::endl;
   Image alma; alma.readFromFile("../tests/alma.png");
   Image i;    i.readFromFile("../tests/i.png");
-  std::cout << "Reached line " << __LINE__ << std::endl;
   StickerSheet sheet(alma, 5);
   sheet.addSticker(i, 20, 200);
-  std::cout << "Reached line " << __LINE__ << std::endl;
   Image expected;
   expected.readFromFile("../tests/expected.png");
-  std::cout << "Reached line " << __LINE__ << std::endl;
   REQUIRE( sheet.render() == expected );
-  std::cout << "Reached line " << __LINE__ << std::endl;
 }
 
 
@@ -55,9 +50,7 @@ TEST_CASE("StickerSheet::changeMaxStickers() does not discard original stickers 
 
   StickerSheet sheet(alma, 5);
   sheet.addSticker(i, 20, 200);
-  std::cout << "Reached line " << __LINE__ << std::endl;
   sheet.changeMaxStickers(3);
-  std::cout << "Reached line " << __LINE__ << std::endl;
   Image expected;
   expected.readFromFile("../tests/expected.png");
   REQUIRE( sheet.render() == expected );
@@ -120,7 +113,7 @@ TEST_CASE("StickerSheet::removeSticker() can remove the first sticker", "[weight
   sheet.addSticker(i, 50, 200);
   sheet.addSticker(i, 20, 200);
   sheet.removeSticker(0);
-
+  
   REQUIRE( sheet.render() == expected );
 }
 
